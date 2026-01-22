@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from '@nuxt/content'
+import type { IndexCollectionItem } from "@nuxt/content";
 
 defineProps<{
-  page: IndexCollectionItem
-}>()
+  page: IndexCollectionItem;
+}>();
+
+const colorMode = useColorMode();
+const isDark = computed(() => colorMode.value === "dark");
 </script>
 
 <template>
@@ -12,7 +15,7 @@ defineProps<{
     :ui="{
       container: '!p-0 gap-4 sm:gap-4',
       title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
-      description: 'mt-2'
+      description: 'mt-2',
     }"
   >
     <template #description>
@@ -24,7 +27,7 @@ defineProps<{
           :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
           :transition="{ delay: 0.4 + 0.2 * index }"
           :in-view-options="{ once: true }"
-          class="text-muted flex items-center text-nowrap gap-2"
+          class="text-muted flex items-center text-nowrap gap-2 mb-2"
         >
           <p class="text-sm">
             {{ experience.date }}
@@ -38,12 +41,36 @@ defineProps<{
             <span class="text-sm">
               {{ experience.position }}
             </span>
-            <div
-              class="inline-flex items-center gap-1"
-              :style="{ color: experience.company.color }"
-            >
-              <span class="font-medium">{{ experience.company.name }}</span>
-              <UIcon :name="experience.company.logo" />
+            <div class="inline-flex items-center gap-1">
+              <span
+                class="text-sm"
+                :style="{
+                  color: isDark
+                    ? experience.company.colorDark
+                    : experience.company.colorLight,
+                }"
+                >{{ experience.company.name }}</span
+              >
+              <!-- <UIcon
+                v-if="experience.company.logo"
+                class="w-[70px]"
+                :name="experience.company.logo"
+              /> -->
+              <NuxtImg
+                v-if="experience.company.src"
+                class="w-[25px]"
+                :src="experience.company.src"
+              />
+              <img
+                v-else
+                width="25px"
+                height="25px"
+                :src="
+                  isDark
+                    ? experience.company.srcDark
+                    : experience.company.srcLight
+                "
+              />
             </div>
           </ULink>
         </Motion>
@@ -52,6 +79,4 @@ defineProps<{
   </UPageSection>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

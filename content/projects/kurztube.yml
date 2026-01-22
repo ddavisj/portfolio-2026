@@ -1,0 +1,6 @@
+title: KurzTube
+description: Kurztube connects to the YouTube API and lets users search for and play a video. It was adapted from a React course and features a custom hook that extracts video-fetching logic and makes it available to all components. A key adaptation made was to create mobile and widescreen modes set via component state.
+image: /projects/kt_16-9_2.jpg
+url: "https://kurztube.netlify.app/"
+tags: ["Vue JS", "Nuxt JS", "Web development", "UX design"]
+date: "2024"

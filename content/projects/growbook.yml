@@ -1,0 +1,6 @@
+title: growBook
+description: growBook lets growers upload images and info about their favourite plants. It was built with Javascript frameworks Vue and Nuxt, Prisma and Tailwind CSS. Plant images and details are stored via a PostgreSQL database, cloud-hosted on Supabase. Supabase also takes care of user authentication and image storage. The app connects to PostgreSQL via Prisma ORM.
+image: "/projects/gb_16-9_2.jpg"
+url: "https://growbook.vercel.app/"
+tags: ["Vue JS", "Nuxt JS", "Web development", "UX design"]
+date: "2024"

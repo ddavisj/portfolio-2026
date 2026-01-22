@@ -1,47 +1,50 @@
 <script setup lang="ts">
 type Event = {
-  title: string
-  date: string
-  location: string
-  url?: string
-  category: 'Conference' | 'Live talk' | 'Podcast'
-}
+  title: string;
+  date: string;
+  location: string;
+  url?: string;
+  category: "Conference" | "Live talk" | "Podcast";
+};
 
-const { data: page } = await useAsyncData('speaking', () => {
-  return queryCollection('speaking').first()
-})
+const { data: page } = await useAsyncData("speaking", () => {
+  return queryCollection("speaking").first();
+});
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Page not found',
-    fatal: true
-  })
+    statusMessage: "Page not found",
+    fatal: true,
+  });
 }
 
 useSeoMeta({
   title: page.value?.seo?.title || page.value?.title,
   ogTitle: page.value?.seo?.title || page.value?.title,
   description: page.value?.seo?.description || page.value?.description,
-  ogDescription: page.value?.seo?.description || page.value?.description
-})
+  ogDescription: page.value?.seo?.description || page.value?.description,
+});
 
-const { global } = useAppConfig()
+const { global } = useAppConfig();
 
-const groupedEvents = computed((): Record<Event['category'], Event[]> => {
-  const events = page.value?.events || []
-  const grouped: Record<Event['category'], Event[]> = {
-    'Conference': [],
-    'Live talk': [],
-    'Podcast': []
-  }
+const groupedEvents = computed((): Record<Event["category"], Event[]> => {
+  const events = page.value?.events || [];
+  const grouped: Record<Event["category"], Event[]> = {
+    Conference: [],
+    "Live talk": [],
+    Podcast: [],
+  };
   for (const event of events) {
-    if (grouped[event.category]) grouped[event.category].push(event)
+    if (grouped[event.category]) grouped[event.category].push(event);
   }
-  return grouped
-})
+  return grouped;
+});
 
 function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+  });
 }
 </script>
 
@@ -53,7 +56,7 @@ function formatDate(dateString: string): string {
       :ui="{
         title: '!mx-0 text-left',
         description: '!mx-0 text-left',
-        links: 'justify-start'
+        links: 'justify-start',
       }"
     >
       <template #links>
@@ -66,7 +69,7 @@ function formatDate(dateString: string): string {
     </UPageHero>
     <UPageSection
       :ui="{
-        container: '!pt-0'
+        container: '!pt-0',
       }"
     >
       <div
@@ -78,7 +81,11 @@ function formatDate(dateString: string): string {
           <h2
             class="lg:sticky lg:top-16 text-xl font-semibold tracking-tight text-highlighted"
           >
-            {{ category.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase()) }}s
+            {{
+              category
+                .replace(/([A-Z])/g, " $1")
+                .replace(/^./, (str) => str.toUpperCase())
+            }}s
           </h2>
         </div>
 
@@ -93,12 +100,9 @@ function formatDate(dateString: string): string {
               :to="event.url"
               class="absolute inset-0"
             />
-            <div class="mb-1 text-sm font-medium text-muted">
+            <div class="mb-1 text-md font-medium text-muted">
               <span>{{ event.location }}</span>
-              <span
-                v-if="event.location && event.date"
-                class="mx-1"
-              >·</span>
+              <span v-if="event.location && event.date" class="mx-1">·</span>
               <span v-if="event.date">{{ formatDate(event.date) }}</span>
             </div>
 

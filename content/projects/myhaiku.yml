@@ -1,0 +1,6 @@
+title: MyHaiku
+description: MyHaiku lets users create and share haiku, ie. short Japanese poems. It was built with NextJS, TypeScript and Tailwind CSS. Haiku text and author data is stored online via a PostgreSQL database hosted on Vercel, mapped via Prisma. Feel free to login via Google and add your own haiku.
+image: /projects/mh_16-9.jpg
+url: "https://myhaiku.vercel.app/"
+tags: ["Vue JS", "Nuxt JS", "Web development", "UX design"]
+date: "2024"

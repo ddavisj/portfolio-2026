@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import type { IndexCollectionItem } from '@nuxt/content'
+import type { IndexCollectionItem } from "@nuxt/content";
 
-const { footer, global } = useAppConfig()
+const { footer, global } = useAppConfig();
 
 defineProps<{
-  page: IndexCollectionItem
-}>()
+  page: IndexCollectionItem;
+}>();
+
+const colorMode = useColorMode();
+const eaDigitalImage = computed(() =>
+  colorMode.value === "dark"
+    ? "/ea-digital-bonw-80sq.png"
+    : "/ea-digital-wong-80sq.png",
+);
 </script>
 
 <template>
@@ -13,7 +20,7 @@ defineProps<{
     :ui="{
       headline: 'flex items-center justify-center',
       title: 'text-shadow-md max-w-lg mx-auto',
-      links: 'mt-4 flex-col justify-center items-center'
+      links: 'mt-4 flex-col justify-center items-center',
     }"
   >
     <template #headline>
@@ -21,23 +28,28 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1
+          delay: 0.1,
         }"
       >
-        <UColorModeAvatar
+        <!-- <UColorModeAvatar
           class="size-18 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
           :light="global.picture?.light!"
-          :dark="global.picture?.dark!"
+          :dark="global.picture?.light!"
           :alt="global.picture?.alt!"
+        /> -->
+        <NuxtImg
+          :src="global.picture?.light"
+          width="w-1/3"
+          class="rounded-full w-full"
         />
       </Motion>
     </template>
@@ -47,19 +59,38 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1
+          delay: 0.1,
         }"
       >
         {{ page.title }}
+      </Motion>
+
+      <Motion
+        :initial="{
+          scale: 1.1,
+          opacity: 0,
+          filter: 'blur(20px)',
+        }"
+        :animate="{
+          scale: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+        }"
+        :transition="{
+          duration: 0.6,
+          delay: 0.1,
+        }"
+      >
+        {{ page.subtitle }}
       </Motion>
     </template>
 
@@ -68,16 +99,16 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.3
+          delay: 0.3,
         }"
       >
         {{ page.description }}
@@ -89,35 +120,38 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.5
+          delay: 0.5,
         }"
       >
-        <div
-          v-if="page.hero.links"
-          class="flex items-center gap-2"
-        >
-          <UButton v-bind="page.hero.links[0]" />
+        <div v-if="page.hero.links" class="flex items-center gap-2">
+          <!-- <UButton v-bind="page.hero.links[0]" /> -->
           <UButton
             :color="global.available ? 'success' : 'error'"
             variant="ghost"
             class="gap-2"
             :to="global.available ? global.meetingLink : ''"
-            :label="global.available ? 'Available for new projects' : 'Not available at the moment'"
+            :label="
+              global.available
+                ? 'Available for new projects'
+                : 'Not available at the moment'
+            "
           >
             <template #leading>
               <span class="relative flex size-2">
                 <span
                   class="absolute inline-flex size-full rounded-full opacity-75"
-                  :class="global.available ? 'bg-success animate-ping' : 'bg-error'"
+                  :class="
+                    global.available ? 'bg-success animate-ping' : 'bg-error'
+                  "
                 />
                 <span
                   class="relative inline-flex size-2 scale-90 rounded-full"
@@ -129,28 +163,55 @@ defineProps<{
         </div>
       </Motion>
 
-      <div class="gap-x-4 inline-flex mt-4">
+      <div class="gap-x-4 inline-flex items-center mt-4">
         <Motion
-          v-for="(link, index) of footer?.links"
           :key="index"
-
           :initial="{
             scale: 1.1,
             opacity: 0,
-            filter: 'blur(20px)'
+            filter: 'blur(20px)',
           }"
           :animate="{
             scale: 1,
             opacity: 1,
-            filter: 'blur(0px)'
+            filter: 'blur(0px)',
           }"
           :transition="{
             duration: 0.6,
-            delay: 0.5 + index * 0.1
+            delay: 0.5 + index * 0.1,
           }"
         >
           <UButton
-            v-bind="{ size: 'md', color: 'neutral', variant: 'ghost', ...link }"
+            :avatar="{
+              src: eaDigitalImage,
+            }"
+            to="https://eadigital.com.au/"
+            target="_blank"
+            size="xl"
+            color="neutral"
+            variant="ghost"
+          />
+        </Motion>
+        <Motion
+          v-for="(link, index) of footer?.links"
+          :key="index"
+          :initial="{
+            scale: 1.1,
+            opacity: 0,
+            filter: 'blur(20px)',
+          }"
+          :animate="{
+            scale: 1,
+            opacity: 1,
+            filter: 'blur(0px)',
+          }"
+          :transition="{
+            duration: 0.6,
+            delay: 0.5 + index * 0.1,
+          }"
+        >
+          <UButton
+            v-bind="{ size: 'xl', color: 'neutral', variant: 'ghost', ...link }"
           />
         </Motion>
       </div>
@@ -166,21 +227,21 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: index * 0.1
+          delay: index * 0.1,
         }"
       >
         <NuxtImg
-          width="234"
-          height="234"
+          width="300"
+          height="300"
           class="rounded-lg aspect-square object-cover"
           :class="index % 2 === 0 ? '-rotate-2' : 'rotate-2'"
           v-bind="img"
