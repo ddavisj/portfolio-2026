@@ -7,15 +7,16 @@ defineProps<{
 </script>
 
 <template>
-  <UPageSection
+  <!-- <UPageSection
     :title="page.about.title"
     :description="page.about.description"
     :ui="{
       container: '!p-0',
-      title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
-      description: 'text-left mt-3 text-md sm:text-md lg:text-md text-muted',
+      title: 'text-left text-xl lg:text-2xl font-medium',
+      description: 'text-left mt-3 text-md !text-wrap',
     }"
-  />
+  /> -->
+  <MDC :value="page.about.description" />
 </template>
 
 <style scoped></style>

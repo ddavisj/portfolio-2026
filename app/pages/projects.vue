@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { container } from "#build/ui";
+
 const { data: page } = await useAsyncData("projects-page", () => {
   return queryCollection("pages").path("/projects").first();
 });
@@ -14,16 +16,10 @@ const { data: projects } = await useAsyncData("projects", () => {
   return queryCollection("projects").all();
 });
 
-const { global } = useAppConfig();
-
-// console.log(21, projects.value);
-
 // Sort by date in desc order
 const projectsSorted = projects.value.sort(
   (a, b) => new Date(b.date).getFullYear() - new Date(a.date).getFullYear(),
 );
-
-// console.log(22, projectsSorted);
 
 useSeoMeta({
   title: page.value?.seo?.title || page.value?.title,
@@ -35,11 +31,12 @@ useSeoMeta({
 
 <template>
   <UPage v-if="page">
+    <!-- :links="page.links"       -->
     <UPageHero
       :title="page.title"
       :description="page.description"
-      :links="page.links"
       :ui="{
+        container: '!pb-12',
         title: '!mx-0 text-left',
         description: '!mx-0 text-left',
         links: 'justify-start',
@@ -47,16 +44,16 @@ useSeoMeta({
     >
       <template #links>
         <div v-if="page.links" class="flex items-center gap-2">
-          <!-- <UButton
-            :label="page.links[0]?.label"
-            :to="global.meetingLink"
+          <UButton
+            icon="i-mdi-github"
+            to="https://github.com/ddavisj"
             v-bind="page.links[0]"
-          /> -->
-          <!-- <UButton :to="`mailto:${global.email}`" v-bind="page.links[1]" /> -->
-          <UButton to="https://eadigital.com.au/" v-bind="page.links[1]" />
+            target="_blank"
+          />
         </div>
       </template>
     </UPageHero>
+
     <UPageSection
       :ui="{
         container: '!pt-0',
@@ -78,9 +75,11 @@ useSeoMeta({
           variant="naked"
           :reverse="index % 2 === 1"
           class="group"
+          :class="index + 1 === projectsSorted.length ? '' : 'mb-4 sm:mb-0'"
           :ui="{
             wrapper: 'max-sm:order-last',
           }"
+          target="_blank"
         >
           <template #leading>
             <span class="text-md text-muted">

@@ -3,7 +3,7 @@ seo:
   description: "I'm David Hack, a web designer and full-stack JS developer based in Melbourne."
 title: "David Hack"
 subtitle: "Fullstack JS Developer"
-description: "I craft sites that captivate your audience and showcase what you do in the best possible light. Based in Melbourne, I bring your ideas to life through code, fresh copy and graphics."
+description: "I craft sites that captivate your audience and showcase what you do in the best possible light. I bring your ideas to life through code, fresh copy and graphics."
 hero:
   links:
     - label:
@@ -31,7 +31,8 @@ hero:
 about:
   title: "About Me"
   description: |
-    I've worked as a web-designer for over 10 years and been working with and studying JS for over 5. I create user-centered digital experiences.
+    ## About Me
+    I've worked as a <a href="https://eadigital.com.au" target="_blank">web designer</a> for over 10 years and been building sites with and studying JavaScript for over 5. I now mostly code with Vue and Nuxt, and am building an eco-startup called <a href="https://eadigital.com.au" target="_blank">Echo Active</a> with this stack. [More >](/about)
 experience:
   title: Work Experience
   items:
@@ -43,7 +44,7 @@ experience:
         url: "https://nwmphn.org.au/"
         colorLight: "#003c68"
         colorDark: "#02538f"
-    - position: "Web Designer/Dev at"
+    - position: "Designer/Developer at"
       date: "2020 - present"
       company:
         name: TreeProject
@@ -61,6 +62,15 @@ experience:
         url: "https://www.echoactive.com"
         colorDark: "#00f59a"
         colorLight: "#189200"
+    - position: "Web designer at"
+      date: "2012 - present"
+      company:
+        name: EA Digital
+        srcLight: "/ea-digital-b.png"
+        srcDark: "/ea-digital-w.png"
+        url: "https://www.eadigital.com.au"
+        colorDark: "#ffffff"
+        colorLight: "#000"
 testimonials:
   - quote: "David did such an incredible job developing my site. He listened carefully to what I needed and came up with excellent ideas to help me achieve it. He made it look amazing and super logical and user-friendly. He was also really professional and super easy to communicate with from beginning to end. People comment all the time on how good my site looks. I highly recommend David to anyone who wants to develop a website!!!"
     author:
@@ -76,7 +86,7 @@ testimonials:
       avatar:
         src: "/testimonials/violet-75sq.jpg"
         srcset: "/testimonials/violet-75sq.jpg"
-  - quote: "EA Digital were creative and professional when building my new electrical website ,greenandgoldelectrics.com.au. I would definitely recommend them ,and will continue to use them in the future. Positive: Responsiveness, Quality, Professionalism, Value."
+  - quote: "EA Digital were creative and professional when building my new electrical website, greenandgoldelectrics.com.au. I would definitely recommend them, and will continue to use them in the future. Positive: Responsiveness, Quality, Professionalism, Value."
     author:
       name: "Martin Meehan"
       description: "Electrician at Green & Gold Electrics"

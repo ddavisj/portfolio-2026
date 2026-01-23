@@ -1,6 +1,6 @@
-title: My recent projects
+title: Recent projects
 description: The following projects have been built with JS frameworks, including Vue, Nuxt, React and Next.
 links:
-  - label: "Contact via EA Digital"
+  - label: "Visit my Github"
     color: "neutral"
-  - label: "Email me"
+  # - label: "Email me"

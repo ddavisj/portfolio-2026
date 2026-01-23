@@ -27,7 +27,7 @@ const isDark = computed(() => colorMode.value === "dark");
           :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
           :transition="{ delay: 0.4 + 0.2 * index }"
           :in-view-options="{ once: true }"
-          class="text-muted flex items-center text-nowrap gap-2 mb-2"
+          class="text-muted flex items-center text-nowrap gap-2 mt-2"
         >
           <p class="text-sm">
             {{ experience.date }}
@@ -42,35 +42,34 @@ const isDark = computed(() => colorMode.value === "dark");
               {{ experience.position }}
             </span>
             <div class="inline-flex items-center gap-1">
-              <span
-                class="text-sm"
-                :style="{
-                  color: isDark
-                    ? experience.company.colorDark
-                    : experience.company.colorLight,
-                }"
-                >{{ experience.company.name }}</span
-              >
-              <!-- <UIcon
-                v-if="experience.company.logo"
-                class="w-[70px]"
-                :name="experience.company.logo"
-              /> -->
+              <ColorScheme>
+                <span
+                  class="text-sm"
+                  :style="{
+                    color: isDark
+                      ? experience.company.colorDark
+                      : experience.company.colorLight,
+                  }"
+                  >{{ experience.company.name }}
+                </span>
+              </ColorScheme>
+
               <NuxtImg
                 v-if="experience.company.src"
                 class="w-[25px]"
                 :src="experience.company.src"
               />
-              <img
-                v-else
-                width="25px"
-                height="25px"
-                :src="
-                  isDark
-                    ? experience.company.srcDark
-                    : experience.company.srcLight
-                "
-              />
+              <ColorScheme v-else>
+                <img
+                  width="25px"
+                  height="25px"
+                  :src="
+                    isDark
+                      ? experience.company.srcDark
+                      : experience.company.srcLight
+                  "
+                />
+              </ColorScheme>
             </div>
           </ULink>
         </Motion>

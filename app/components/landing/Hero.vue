@@ -40,17 +40,9 @@ const eaDigitalImage = computed(() =>
           delay: 0.1,
         }"
       >
-        <!-- <UColorModeAvatar
-          class="size-18 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
-          :light="global.picture?.light!"
-          :dark="global.picture?.light!"
-          :alt="global.picture?.alt!"
-        /> -->
-        <NuxtImg
-          :src="global.picture?.light"
-          width="w-1/3"
-          class="rounded-full w-full"
-        />
+        <div class="flex justify-center">
+          <NuxtImg :src="global.picture?.light" class="rounded-full w-1/2" />
+        </div>
       </Motion>
     </template>
 
@@ -165,7 +157,6 @@ const eaDigitalImage = computed(() =>
 
       <div class="gap-x-4 inline-flex items-center mt-4">
         <Motion
-          :key="index"
           :initial="{
             scale: 1.1,
             opacity: 0,
@@ -178,20 +169,23 @@ const eaDigitalImage = computed(() =>
           }"
           :transition="{
             duration: 0.6,
-            delay: 0.5 + index * 0.1,
+            delay: 0.5,
           }"
         >
-          <UButton
-            :avatar="{
-              src: eaDigitalImage,
-            }"
-            to="https://eadigital.com.au/"
-            target="_blank"
-            size="xl"
-            color="neutral"
-            variant="ghost"
-          />
+          <ColorScheme>
+            <UButton
+              :avatar="{
+                src: eaDigitalImage,
+              }"
+              to="https://eadigital.com.au/"
+              target="_blank"
+              size="xl"
+              color="neutral"
+              variant="ghost"
+            />
+          </ColorScheme>
         </Motion>
+
         <Motion
           v-for="(link, index) of footer?.links"
           :key="index"

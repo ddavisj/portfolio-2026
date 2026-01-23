@@ -22,17 +22,20 @@ const aboriginalFlag = "/Aboriginal-flag.png";
       </div>
     </div>
 
-    <div v-if="footer?.links">
-      <UButton
-        :avatar="{
-          src: eaDigitalSrc,
-        }"
-        to="https://eadigital.com.au/"
-        target="_blank"
-        size="xl"
-        color="neutral"
-        variant="ghost"
-      />
+    <div v-if="footer?.links" class="flex">
+      <ColorScheme>
+        <UButton
+          :avatar="{
+            src: eaDigitalSrc,
+          }"
+          to="https://eadigital.com.au/"
+          target="_blank"
+          size="xl"
+          color="neutral"
+          variant="ghost"
+        />
+      </ColorScheme>
+
       <UButton
         v-for="(link, index) of footer?.links"
         :key="index"

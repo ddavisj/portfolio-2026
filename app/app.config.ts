@@ -8,10 +8,17 @@ export default defineAppConfig({
       alt: "My profile picture",
     },
     meetingLink: "https://eadigital.com.au/",
-    // email: "ui-pro@nuxt.com",
     available: true,
   },
   ui: {
+    prose: {
+      // custom styling for Nuxt MDC comp
+      h2: {
+        slots: {
+          base: "text-xl sm:text-xl lg:text-2xl font-medium !mt-0 mb-4",
+        },
+      },
+    },
     colors: {
       primary: "blue",
       neutral: "neutral",
