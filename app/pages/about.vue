@@ -22,17 +22,19 @@ useSeoMeta({
 
 <template>
   <UPage v-if="page">
-    <UPageHero
-      :title="page.title"
-      :description="page.description"
-      orientation="horizontal"
-      :ui="{
-        container: 'lg:flex sm:flex-row items-center !pb-4',
-        title: '!mx-0 text-left',
-        description: '!mx-0 text-left',
-        links: 'justify-start',
-      }"
-    />
+    <div class="max-w-2xl mx-auto">
+      <UPageHero
+        :title="page.title"
+        :description="page.description"
+        orientation="horizontal"
+        :ui="{
+          container: '!px-0 sm:mx-0 lg:flex sm:flex-row items-center !pb-4',
+          title: 'px-4 sm:px-0 sm:mx-0 text-left',
+          description: 'px-4 sm:px-0 text-left',
+          links: 'justify-start',
+        }"
+      />
+    </div>
 
     <Motion
       :initial="{
@@ -50,7 +52,7 @@ useSeoMeta({
         delay: 0.1,
       }"
     >
-      <div class="flex max-w-2xl justify-center mt-6 mb-6">
+      <div class="flex w-full justify-center mt-6 mb-6">
         <NuxtImg
           :src="global.picture?.light"
           class="rounded-full w-1/3 sm:max-w-[200px]"
@@ -63,7 +65,7 @@ useSeoMeta({
         container: '!pt-0',
       }"
     >
-      <div class="max-w-2xl">
+      <div class="max-w-2xl mx-auto">
         <MDC :value="page.content" />
       </div>
       <div

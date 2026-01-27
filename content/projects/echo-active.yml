@@ -2,7 +2,7 @@ title: Echo Active
 description: |
   Echo Active is a platform for nature lovers. It connects people to activities that are good for them and good for the planet.
 
-  Built with Vue/Nuxt, Prisma ORM and PostGres, it also integrates with Cloudflare, Supabase and other APIs for video and image storage, geolocation and other functions. Hosted via Vercel.
+  Built with TypeScript, Vue/Nuxt, Tailwind, Nuxt UI, Prisma ORM and PostGres, it also integrates with Cloudflare, Supabase and other APIs for video and image storage, geolocation and other functions. Hosted via Vercel.
 image: "/projects/ea_16-9.jpg"
 url: "https://www.echoactive.com"
 tags: ["Vue JS", "Nuxt JS", "Web development", "UX design"]

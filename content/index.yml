@@ -3,7 +3,8 @@ seo:
   description: "I'm David Hack, a web designer and full-stack JS developer based in Melbourne."
 title: "David Hack"
 subtitle: "Fullstack JS Developer"
-description: "I craft sites that captivate your audience and showcase what you do in the best possible light. I bring your ideas to life through code, fresh copy and graphics."
+description: "Building interactive sites with JavaScript, Typescript, Vue and Nuxt that focus on UX"
+alt-description: "That captivate your audience and showcase what you do in the best possible light. I bring your ideas to life through code, fresh copy and graphics."
 hero:
   links:
     - label:
@@ -32,7 +33,7 @@ about:
   title: "About Me"
   description: |
     ## About Me
-    I've worked as a <a href="https://eadigital.com.au" target="_blank">web designer</a> for over 10 years and been building sites with and studying JavaScript for over 5. I now mostly code with Vue and Nuxt, and am building an eco-startup called <a href="https://eadigital.com.au" target="_blank">Echo Active</a> with this stack. [More >](/about)
+    I've worked as a web designer with my agency <a href="https://eadigital.com.au" target="_blank">EA Digital</a> for over 10 years and have been building sites with JavaScript for over 5. I code with TypeScript, Vue and Nuxt, and am using this stack to build an eco-startup called <a href="https://eadigital.com.au" target="_blank">Echo Active</a>. Based in Melbourne, Aus. [More >](/about)
 experience:
   title: Work Experience
   items:

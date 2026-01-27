@@ -136,6 +136,7 @@ const eaDigitalImage = computed(() =>
                 ? 'Available for new projects'
                 : 'Not available at the moment'
             "
+            title="Contact me via EA Digital"
           >
             <template #leading>
               <span class="relative flex size-2">

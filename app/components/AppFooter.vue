@@ -43,6 +43,7 @@ const aboriginalFlag = "/Aboriginal-flag.png";
           size="xl"
           color="neutral"
           variant="ghost"
+          title="Contact me via EA Digital"
         />
         <UButton
           v-for="(link, index) of footer?.links"
