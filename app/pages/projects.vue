@@ -106,5 +106,7 @@ useSeoMeta({
         </UPageCard>
       </Motion>
     </UPageSection>
+
+    <NextPage name="About me" url="/about" />
   </UPage>
 </template>

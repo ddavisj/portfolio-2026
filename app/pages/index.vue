@@ -32,5 +32,6 @@ useSeoMeta({
     <!-- <LandingBlog :page /> -->
     <LandingTestimonials :page />
     <!-- <LandingFAQ :page /> -->
+    <NextPage name="Recent projects" url="/projects" />
   </UPage>
 </template>

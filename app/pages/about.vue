@@ -79,5 +79,11 @@ useSeoMeta({
         />
       </div>
     </UPageSection>
+
+    <NextPage
+      name="Design work: EA Digital"
+      url="https://www.eadigital.com.au"
+      target-blank="true"
+    />
   </UPage>
 </template>
