@@ -3,4 +3,5 @@ description: growBook lets growers upload images and info about their favourite 
 image: "/projects/gb_16-9.jpg"
 url: "https://growbook.vercel.app/"
 tags: ["Vue JS", "Nuxt JS", "Web development", "UX design"]
+position: 5
 date: "2024"

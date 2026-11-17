@@ -3,4 +3,5 @@ description: Kurztube connects to the YouTube API and lets users search for and 
 image: /projects/kt_16-9.jpg
 url: "https://kurztube.netlify.app/"
 tags: ["React JS", "Web development", "UX design"]
+position: 6
 date: "2024"

@@ -1,0 +1,13 @@
+title: Woodfrog Bread Health
+description: |
+  This project was created along with bakery staff at Woodfrog Bakery to monitor bread conditions during the baking process.
+
+  It was designed to be used by bakery staff at the bakery, and allow for external monitoring by management.
+
+  Built with Nuxt and Vue JS.
+image: "/projects/wb.jpg"
+url: "https://woodfrog-bake.vercel.app/"
+
+position: 2
+tags: ["Vue JS", "Nuxt JS", "Web development", "UX design"]
+date: "2026"

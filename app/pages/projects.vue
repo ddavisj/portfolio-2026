@@ -1,32 +1,33 @@
 <script setup lang="ts">
-import type { container } from "#build/ui";
+import type { container } from '#build/ui'
 
-const { data: page } = await useAsyncData("projects-page", () => {
-  return queryCollection("pages").path("/projects").first();
-});
+const { data: page } = await useAsyncData('projects-page', () => {
+  return queryCollection('pages').path('/projects').first()
+})
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Page not found",
-    fatal: true,
-  });
+    statusMessage: 'Page not found',
+    fatal: true
+  })
 }
 
-const { data: projects } = await useAsyncData("projects", () => {
-  return queryCollection("projects").all();
-});
+const { data: projects } = await useAsyncData('projects', () => {
+  return queryCollection('projects').all()
+})
 
 // Sort by date in desc order
 const projectsSorted = projects.value.sort(
-  (a, b) => new Date(b.date).getFullYear() - new Date(a.date).getFullYear(),
-);
+  // (a, b) => new Date(b.date).getFullYear() - new Date(a.date).getFullYear(),
+  (a, b) => b.position - a.position
+)
 
 useSeoMeta({
   title: page.value?.seo?.title || page.value?.title,
   ogTitle: page.value?.seo?.title || page.value?.title,
   description: page.value?.seo?.description || page.value?.description,
-  ogDescription: page.value?.seo?.description || page.value?.description,
-});
+  ogDescription: page.value?.seo?.description || page.value?.description
+})
 </script>
 
 <template>
@@ -39,11 +40,14 @@ useSeoMeta({
         container: '!pb-12',
         title: '!mx-0 text-left',
         description: '!mx-0 text-left',
-        links: 'justify-start',
+        links: 'justify-start'
       }"
     >
       <template #links>
-        <div v-if="page.links" class="flex items-center gap-2">
+        <div
+          v-if="page.links"
+          class="flex items-center gap-2"
+        >
           <UButton
             icon="i-mdi-github"
             to="https://github.com/ddavisj"
@@ -56,7 +60,7 @@ useSeoMeta({
 
     <UPageSection
       :ui="{
-        container: '!pt-0',
+        container: '!pt-0'
       }"
     >
       <Motion
@@ -77,7 +81,7 @@ useSeoMeta({
           class="group"
           :class="index + 1 === projectsSorted.length ? '' : 'mb-4 sm:mb-0'"
           :ui="{
-            wrapper: 'max-sm:order-last',
+            wrapper: 'max-sm:order-last'
           }"
           target="_blank"
         >
@@ -102,11 +106,14 @@ useSeoMeta({
             :src="project.image"
             :alt="project.title"
             class="object-cover w-full h-48 rounded-lg"
-          />
+          >
         </UPageCard>
       </Motion>
     </UPageSection>
 
-    <NextPage name="About me" url="/about" />
+    <NextPage
+      name="About me"
+      url="/about"
+    />
   </UPage>
 </template>
