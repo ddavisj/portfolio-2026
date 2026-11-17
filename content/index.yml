@@ -37,6 +37,16 @@ about:
 experience:
   title: Work Experience
   items:
+    - position: "Founder at"
+      date: "2023 - present"
+      company:
+        name: Echo Active
+        # src: "/eanew.png"
+        srcLight: "/ea-icon-light.png"
+        srcDark: "/ea-icon-dark.png"
+        url: "https://www.echoactive.com"
+        colorDark: "#00f59a"
+        colorLight: "#189200"
     - position: "Front-End Dev at"
       date: "2022 - 2023"
       company:
@@ -53,16 +63,6 @@ experience:
         url: "https://treeproject.org.au/"
         colorLight: "#77a12d"
         colorDark: "#77a12d"
-    - position: "Founder at"
-      date: "2015 - present"
-      company:
-        name: Echo Active
-        # src: "/eanew.png"
-        srcLight: "/ea-icon-light.png"
-        srcDark: "/ea-icon-dark.png"
-        url: "https://www.echoactive.com"
-        colorDark: "#00f59a"
-        colorLight: "#189200"
     - position: "Web designer at"
       date: "2012 - present"
       company:
